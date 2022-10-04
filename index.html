@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> 
+            LEARN JAVASCRIPT
+        </title>
+    </head>
+
+    <body>
+
+        <input id="todo-title" type="text" />
+        <input id="todo-date" type="date" />
+    
+        <button onclick="add()">PRESS ME</button>
+        <div id='main'></div>
+
+        <script>
+
+            let todo=[];
+
+            function add ()
+            {
+                let textbox = document.getElementById('todo-title');
+                textval = textbox.value;
+
+                const datepick = document.getElementById('todo-date');
+                const dateval = datepick.value;
+
+                const id = new Date().getTime();
+
+                todo.push({
+                    title: textval,
+                    due: dateval,
+                    id: id
+                });
+
+                render();
+            }
+
+            function deletetodo(event)
+            {
+                const eventvalue = event.target;
+                const idtodelete = eventvalue.id;
+
+                todo = todo.filter(function (b){
+
+                    if( b.id == idtodelete){
+                        return false;
+                    }
+                        
+                    else{
+                        return true;
+                    }
+                          
+                });
+
+                render();
+
+
+            }
+
+            function render()
+            {
+
+                document.getElementById('main').innerHTML="";
+
+                todo.forEach(function(a)
+                {
+                    let dee= document.createElement('div');
+                    dee.innerText=a.title + a.due;
+
+
+                    const deletebutton = document.createElement('button');
+                    deletebutton.innerText="Delete";
+                    
+                    deletebutton.onclick= deletetodo;
+                    deletebutton.id= a.id;
+                    deletebutton.style = 'margin-left: 12px;';
+                    dee.appendChild(deletebutton);
+
+                    
+
+
+                    let todomain=document.getElementById('main');
+
+                    todomain.appendChild(dee);
+
+                })
+            }
+
+        </script>
+
+    </body>
+</html>
