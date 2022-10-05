@@ -19,20 +19,15 @@
             // Model Section
             let todo;
 
-            //render();
-
             const saved = JSON.parse(localStorage.getItem('todo'));
 
-            if(Array.isArray(saved)===true)
+            if(Array.isArray(saved))
             {
                 todo = saved;
             }
-
             else
-                todo = [];
+                todo=[];
 
-
-            render();
             
             //Create To Do
             function createtodo(textval,dateval)
@@ -83,21 +78,20 @@
 
                 todo.forEach(function(a)
                 {
-                    let dee= document.createElement('div');
-                    dee.innerText=a.title + a.due;
+                    const dee= document.createElement('div');
+                    dee.innerText=a.title +' ' + a.due;
 
 
                     const deletebutton = document.createElement('button');
-                    deletebutton.innerText="Delete";
                     
+                    deletebutton.innerText="Delete";
                     deletebutton.onclick= deletetodo;
                     deletebutton.id= a.id;
                     deletebutton.style = 'margin-left: 12px;';
                     dee.appendChild(deletebutton);
 
                     
-                    let todomain=document.getElementById('main');
-
+                    const todomain=document.getElementById('main');
                     todomain.appendChild(dee);
 
                 });
@@ -109,8 +103,8 @@
             function add ()
             {
 
-                let textbox = document.getElementById('todo-title');
-                textval = textbox.value;
+                const textbox = document.getElementById('todo-title');
+                const textval = textbox.value;
 
                 const datepick = document.getElementById('todo-date');
                 const dateval = datepick.value;
@@ -131,6 +125,8 @@
                 render();
 
             }
+
+            render();
 
 
         </script>
