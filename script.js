@@ -68,10 +68,7 @@
          const deletebutton = document.createElement('button');
          
          deletebutton.innerText="Delete";
-         //deletebutton.innerHTML="<img src=pics/trashbox.jpg >"
-         //deletebutton.src="pics/trashbox.jpg"
          deletebutton.onclick= deletetodo;
-         deletebutton.className="pic"
          deletebutton.id= a.id;
          deletebutton.style = 'margin-left: 12px;';
          dee.appendChild(deletebutton);
