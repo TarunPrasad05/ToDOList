@@ -17,18 +17,32 @@
         <script>
 
             // Model Section
-            let todo=[];
+            let todo;
 
+            //render();
+
+            const saved = JSON.parse(localStorage.getItem('todo'));
+
+            if(Array.isArray(saved)===true)
+            {
+                todo = saved;
+            }
+
+
+            render();
+            
             //Create To Do
             function createtodo(textval,dateval)
             {
-                const id = new Date().getTime();
+                const id = '' + new Date().getTime();
 
                 todo.push({
                 title: textval,
                 due: dateval,
                 id: id
                 });
+
+                savedtodo();
             }
 
             //Remove To Do
@@ -37,7 +51,7 @@
                 todo = todo.filter(function (b)
                 {
 
-                if( b.id == idtodelete)
+                if( b.id === idtodelete)
                 {
                     return false;
                 }
@@ -49,6 +63,13 @@
 
                 });
 
+                savedtodo();
+
+            }
+
+            function savedtodo()
+            {
+                localStorage.setItem('todo', JSON.stringify(todo));
             }
 
             //View Section
@@ -112,3 +133,4 @@
         </script>
     </body>
 </html>
+
