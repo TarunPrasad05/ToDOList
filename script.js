@@ -62,12 +62,16 @@
      {
          const dee= document.createElement('div');
          dee.innerText=a.title +' ' + a.due;
+         dee.className="ele";
 
 
          const deletebutton = document.createElement('button');
          
-         deletebutton.innerText="Delete";
+         //deletebutton.innerText="Delete";
+         deletebutton.innerHTML="<img src=pics/trashbox.jpg >"
+         deletebutton.src="pics/trashbox.jpg"
          deletebutton.onclick= deletetodo;
+         deletebutton.className="pic"
          deletebutton.id= a.id;
          deletebutton.style = 'margin-left: 12px;';
          dee.appendChild(deletebutton);
@@ -92,6 +96,8 @@
      const dateval = datepick.value;
 
      createtodo(textval,dateval);
+
+     textbox.value="";
 
      render();
  }

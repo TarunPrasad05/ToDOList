@@ -3,18 +3,25 @@
     <head>
         <title> To Do List </title>
         <link rel="stylesheet" href="style.css" >
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     </head>
 
     <body>
 
-        <div>
-            <input id="todo-title" type="text" />
-            <input id="todo-date" type="date" />
-        
-            <button onclick="add()">PRESS ME</button>
+        <div class="mainArea">
+
+            <h1 class="heading">Todo List</h1>
+
+            <div class ="topArea">
+            <input id="todo-title" type="text" placeholder="Add your new Todo" />
+            <input id="todo-date" type="date"  />
+            <button id="button" onclick="add()">+</button>
+            </div>
+
             <div id='main'></div>
         </div>
-
 
         <script src="script.js"> </script>
     </body>

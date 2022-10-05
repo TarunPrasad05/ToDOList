@@ -1,0 +1,71 @@
+body{
+    font-family: Roboto;
+    background-color: rgb(69, 97, 88);
+}
+
+.heading{
+    color: rgb(38, 39, 39);
+}
+
+.mainArea{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.topArea{
+    margin-top: 20px;
+
+}
+
+#todo-title
+{
+    height: 30px;
+    width: 200px;
+    border-radius: 3px;
+    border-style:ridge;
+    border-width: 1px;
+    padding-left: 10px;
+}
+
+#todo-date
+{
+    height: 32px;
+    width: 200px;
+    border-radius: 3px;
+    border-style:ridge;
+    border-width: 1px;
+}
+
+#button
+{
+    height: 32px;
+    width: 30px;
+    font-size: 17px;
+    border-radius: 3px;
+    border-style: hidden;
+    padding: 0px;
+}
+
+#main
+{
+    margin-top: 15px;
+    
+
+}
+
+.ele
+{
+    background-color: rgb(193, 191, 191);
+    margin-bottom: 10px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    justify-content: space-between;
+    padding-right: 3px;
+
+}
+
+
