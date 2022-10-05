@@ -16,49 +16,42 @@
 
         <script>
 
+            // Model Section
             let todo=[];
 
-            function add ()
+            //Create To Do
+            function createtodo(textval,dateval)
             {
-                let textbox = document.getElementById('todo-title');
-                textval = textbox.value;
-
-                const datepick = document.getElementById('todo-date');
-                const dateval = datepick.value;
-
                 const id = new Date().getTime();
 
                 todo.push({
-                    title: textval,
-                    due: dateval,
-                    id: id
+                title: textval,
+                due: dateval,
+                id: id
                 });
-
-                render();
             }
 
-            function deletetodo(event)
+            //Remove To Do
+            function removetodo(idtodelete)
             {
-                const eventvalue = event.target;
-                const idtodelete = eventvalue.id;
+                todo = todo.filter(function (b)
+                {
 
-                todo = todo.filter(function (b){
+                if( b.id == idtodelete)
+                {
+                    return false;
+                }
 
-                    if( b.id == idtodelete){
-                        return false;
-                    }
-                        
-                    else{
-                        return true;
-                    }
-                          
+                else
+                {
+                    return true;
+                }
+
                 });
-
-                render();
-
 
             }
 
+            //View Section
             function render()
             {
 
@@ -79,16 +72,43 @@
                     dee.appendChild(deletebutton);
 
                     
-
-
                     let todomain=document.getElementById('main');
 
                     todomain.appendChild(dee);
 
-                })
+                });
             }
 
-        </script>
 
+            //Control Section
+            //Controller 1
+            function add ()
+            {
+
+                let textbox = document.getElementById('todo-title');
+                textval = textbox.value;
+
+                const datepick = document.getElementById('todo-date');
+                const dateval = datepick.value;
+
+                createtodo(textval,dateval);
+
+                render();
+            }
+            
+            //Controller 2
+            function deletetodo(event)
+            {
+                const eventvalue = event.target;
+                const idtodelete = eventvalue.id;
+
+                removetodo(idtodelete);
+
+                render();
+
+            }
+
+
+        </script>
     </body>
 </html>
